@@ -16,7 +16,7 @@ private: // 숨기고 싶은 변수
 	string name;
 	double midterm, final;
 	vector<double> homework;
-	
+
 
 public: // 접근할 수 있는 함수
 	// ###### 생성자 ######
@@ -28,6 +28,10 @@ public: // 접근할 수 있는 함수
 	string getName() const { return name; }
 	void setName(string n) { name = n; }
 
+	double getMidterm() const { return midterm; }
+	double getFinal() const { return final; }
+	vector<double> getHw() const { return homework; }
+
 	bool valid() const { return !homework.empty(); }
 	// 9.2.1/254p에서 정의한 함수들
 	istream& read(istream&);
@@ -38,6 +42,7 @@ public: // 접근할 수 있는 함수
 
 // 전역함수 정의
 bool compare(const Student_info& , const Student_info&);
+
 
 
 #endif // !GUARD_Student_info

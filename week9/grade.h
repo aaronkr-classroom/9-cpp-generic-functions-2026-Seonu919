@@ -10,6 +10,8 @@
 
 using std::vector; // 추가
 using std::list;
+
+
 double grade(double, double, const vector<double>&); // &(참조) 사용하면 const가 필수
 double grade(double, double, double);
 double grade(const Student_info&);

@@ -26,8 +26,11 @@ double grade(double midterm, double final, double homework) {
 
 // Student_info 계산
 double grade(const Student_info& s) {
-	return grade(s.midterm, s.final, s.homework);
+	return grade(s.getMidterm(), s.getFinal(), s.getHw());
 }
+/*double grade(const Student_info& s) {
+	return grade(s.midterm, s.final, s.homework);
+}*/
 // 학생의 과락 여부를 결정하는 서술 함수
 bool fgrade(const Student_info& s) {
 	return grade(s) < 60;
@@ -36,13 +39,8 @@ bool pgrade(const Student_info& s){
 	return !fgrade(s);
 }
 bool did_all_hw(const Student_info& s) {
-	return(
-		(find(
-			s.homework.begin(),
-		    s.homework.end(), 0)
-			== s.homework.end()
-			)
-		);
+	vector<double> hw = s.getHw();
+	return (find(hw.begin(), hw.end(), 0) == hw.end());
 }
 list<Student_info> extract_fails(list < Student_info>& students) {
 	list<Student_info> fail;
